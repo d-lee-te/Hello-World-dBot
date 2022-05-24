@@ -21,6 +21,12 @@ public class BotListeners extends ListenerAdapter {
         }*/
 
         //All messages should probably check to see if the author is a bot.
+        //Also want to make it so it only replies if it's on a certain server if possible?
+        //Curious if I could make that happen
+        /*System.out.println(event.getGuild());
+        if (event.isFromGuild())    {
+            System.out.println("Success");
+        }*/
         if ((!event.getAuthor().isBot()))   {
 
             //Moonstone reaction
@@ -82,5 +88,6 @@ public class BotListeners extends ListenerAdapter {
                 event.getTextChannel().sendMessage("__Fear not my son__").addFile(new File("C:\\Users\\flaru\\Desktop\\dBot\\hayzeus.jpg")).queue();
             }
         }
+
     }
 }

@@ -16,10 +16,12 @@ public class dBot {
 
     public static void main(String[] args) throws LoginException, InterruptedException {
 
+
         JDA jda = JDABuilder.createDefault("OTc3NzY5NTQzNzkzNTI0Nzg4.Ggayql.xmDH0rhl_14Ddyt3dA-FZbLnKDL1Ji96_fdnr4")
                 .setActivity(Activity.listening("the screams of the dead"))
                 .addEventListeners(new BotCommands(), new BotListeners())
                 .build().awaitReady();
+
 
         //Global Commands
         //the upsertCommand just isn't working for me? Not sure why...
@@ -39,10 +41,9 @@ public class dBot {
             /*guild.upsertCommand("scream", "J, what are you smoking!?!")
                     .queue();*/
             CommandListUpdateAction clueCommands = clueless.updateCommands();
-            clueCommands.addCommands(Commands.slash("smoke", "you're empowering it"));
-            clueCommands.queue();
-            //Haven't made this one yet
-            clueCommands.addCommands(Commands.slash("screech", "how are you making that noise?"));
+            clueCommands.addCommands(
+                    Commands.slash("smoke", "you're empowering it"),
+                    Commands.slash("screech", "how are you making that noise?"));
             clueCommands.queue();
         }
         //Skylight Commands
@@ -54,7 +55,8 @@ public class dBot {
         //My Server's commands
         if (me != null) {
             CommandListUpdateAction meCommands = me.updateCommands();
-            meCommands.addCommands(Commands.slash("smoke", "you're empowering it"));
+            meCommands.addCommands(Commands.slash("smoke", "you're empowering it"),
+                    Commands.slash("screech", "how are you making that noise?"));
             meCommands.queue();
         }
 
